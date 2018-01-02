@@ -30,13 +30,13 @@ public class ConvidadoController {
     @GetMapping("/novo")
     public String novo(Model model) {
         model.addAttribute(new Convidado());
-        return "/novo/novo_convidado";
+        return "/novo_convidado";
     }
 
     @PostMapping("/novo")
     public String salvar(@Valid Convidado convidado, BindingResult result, Model model) {
         if (result.hasErrors()) {
-            return "/novo/novo_convidado";
+            return "/novo_convidado";
         }
         cr.save(convidado);
         return "redirect:/listaconvidados";
