@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de convidados VIP</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <h1 class="text-center col-xs-12">Lista de convidados</h1>
+    </div>
+    <div class="form-group">
+        <a class="btn btn-primary" href="/"><span class="glyphicon glyphicon-th"></span> Home</a>
+        <a class="btn btn-primary" style="margin-right: 0px;" href="/novo"><span
+                class="glyphicon glyphicon-floppy-disk"></span>
+            Novo</a>
+    </div>
+
+    <div id="listaDeConvidados">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Telefone</th>
+                <!--<th>Excluir</th>-->
+            </tr>
+            </thead>
+            <tr th:each="convidado : ${convidados}">
+                <td><span th:text="${convidado.nome}"></span></td>
+                <td><span th:text="${convidado.email}"></span></td>
+                <td><span th:text="${convidado.telefone}"></span></td>
+                <td><a th:href="${(#mvc.url('CC#deletar').arg(0,convidado.id)).build()}"><span
+                        class="glyphicon glyphicon-remove"></span></a></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<script
+        src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+</body>
+</html>

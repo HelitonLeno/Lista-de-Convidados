@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>ListaVIP</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body>
+
+<div class="container">
+    <div class="form-group text-center">
+        <h1>Novo convidado</h1>
+    </div>
+    <form method="post" action="/novo" th:object="${convidado}">
+
+        <div class="alert alert-danger" role="alert" th:each="erro : ${#fields.detailedErrors('${convidado.*}')}"
+             th:text="${erro.message}"></div>
+
+        <div class="form-group">
+            <label for="nome">Nome completo</label>
+            <input class="form-control" type="text" id="nome" th:field="*{nome}" placeholder="Digite o nome"/>
+        </div>
+        <div class="form-group">
+            <label for="email">E-mail</label>
+            <input class="form-control" type="email" id="email" th:field="*{email}" placeholder="Digite o email"/>
+        </div>
+        <div class="form-group">
+            <label for="telefone">Telefone</label>
+            <input class="form-control" type="text" id="telefone" th:field="*{telefone}"
+                   placeholder="Digite o telefone"/>
+        </div>
+
+        <div class="form-group">
+            <a class="btn btn-primary" href="/listaconvidados"><span class="glyphicon glyphicon-arrow-left"></span>
+                Voltar</a>
+            <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-user"></span> Salvar</button>
+        </div>
+    </form>
+
+</div>
+
+<script
+        src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+</body>
+</html>
