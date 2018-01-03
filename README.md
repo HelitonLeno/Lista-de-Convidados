@@ -6,4 +6,4 @@
         Novo Convidado - URL: http://localhost:8080/novo
         Listar Convidados ou Excluir - URL: http://localhost:8080/listaconvidados
     
-    Configurar banco em resources/application.properties
+    Configurações - resources/application.properties
